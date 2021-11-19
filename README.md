@@ -1,8 +1,9 @@
 # Pi_5B_LCD_MP3_Player
 
-A simple MP3 Player using a Raspberry Pi and 5 buttons, and 1 I2C LCDs, either 16x2 or 20x4
+A simple MP3 Player and Internet Radio Player using a Raspberry Pi, 5 buttons, and 1 I2C LCD, either 16x2 or 20x4.
 
-All buttons are connected between gpios and gnd (1k resistors in series are usually recommended), LCD connected as shown. Backlight control (if required) via a opto-isolator, if not then leave the supplied link in place on the LCD.
+All buttons are connected between gpios and gnd (1k resistors in series are usually recommended), LCD connected as shown. 
+Backlight control (if required) via a opto-isolator, if not then leave the supplied link in place on the LCD.
 
 ## schematic
 
@@ -22,7 +23,8 @@ All buttons are connected between gpios and gnd (1k resistors in series are usua
 ![schematic](photo001.jpg)
 
 
-At boot it will look for mp3 tracks in '/home/pi/Music', and/or on a USB stick with the format /Artist/Album/Tracks
+At boot it will look for mp3 tracks in '/home/pi/Music/artist name/album_name/tracks', 
+and/or on a USB stick, under /media/pi/usb_stick_name/artist name/album_name/tracks
 
 To install copy 5B_LCD_MP3_player.py to /home/pi
 
