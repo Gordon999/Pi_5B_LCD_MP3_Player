@@ -22,7 +22,7 @@ All buttons are connected between gpios and gnd (1k resistors in series are usua
 ![schematic](photo001.jpg)
 
 
-At boot it will look for mp3 tracks in '/home/pi/Music', and on a USB stick with the format /Artist/Album/Tracks
+At boot it will look for mp3 tracks in '/home/pi/Music', and/or on a USB stick with the format /Artist/Album/Tracks
 
 To install copy 5B_LCD_MP3_player.py to /home/pi
 
