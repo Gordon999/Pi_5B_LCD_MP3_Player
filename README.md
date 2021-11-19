@@ -30,6 +30,8 @@ To install copy 5B_LCD_MP3_player.py to /home/pi
 
 and then
 
+sudo pip3 install rpi_lcd
+
 sudo apt-get install mplayer
 
 sudo pip3 install mutagen
