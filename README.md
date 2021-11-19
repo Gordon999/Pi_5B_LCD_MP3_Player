@@ -35,3 +35,6 @@ sudo apt-get install mplayer
 sudo pip3 install mutagen
 
 to run python3 5B_LCD_MP3_player.py
+
+to start at boot add /usr/bin/python3 /home/pi/5B_LCD_MP3_player.py to /etc/xdg/lxsession/LXDE-pi/autostart
+and ensure your Pi boots to the GUI
