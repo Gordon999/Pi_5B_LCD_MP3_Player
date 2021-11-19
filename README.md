@@ -13,11 +13,11 @@ All buttons are connected between gpios and gnd (1k resistors in series are usua
 
 ## screenshot showing status... R for Random, G for Gapless,  S for SLEEP Timer set
 
-![schematic](photo001.jpg)
+![schematic](photo002.jpg)
 
 ## screenshot showing ALBUM MODE
 
-![schematic](photo002.jpg)
+![schematic](photo001.jpg)
 
 
 At boot it will look for mp3 tracks in '/home/pi/Music', and on a USB stick with the format /Artist/Album/Tracks
