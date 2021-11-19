@@ -9,7 +9,9 @@ All buttons are connected between gpios and gnd (1k resistors in series are usua
 ![schematic](schematic.jpg)
 
 5 button switches, PREVIOUS,PLAY,NEXT,VOLUME,SLEEP but they have multi purposes as shown.
+## Button usage
 
+![modes](modes.jpg)
 
 ## screenshot showing status... R for Random, G for Gapless,  S for SLEEP Timer set
 
