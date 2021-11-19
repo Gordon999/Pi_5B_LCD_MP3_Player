@@ -15,7 +15,7 @@ All buttons are connected between gpios and gnd (1k resistors in series are usua
 
 ![schematic](photo002.jpg)
 
-## screenshot showing ALBUM MODE
+## screenshot showing ALBUM MODE, GAPLESS ON and SLEEP Timer set.
 
 ![schematic](photo001.jpg)
 
