@@ -18,13 +18,13 @@ def safe_exit(signum, frame):
 signal(SIGTERM, safe_exit)
 signal(SIGHUP, safe_exit)
 
-# version 1.0
+# version 1.1
 
 # set starting variables
 MP3_Play    = 0    # set to 1 to start playing MP3s at boot, else 0
 radio       = 0    # set to 1 to start playing radio at boot, else 0
 radio_stn   = 0    # selected radio station at startup 
-shuffled    = 1    # 0 = Unshuffled, 1 = Shuffled
+shuffled    = 0    # 0 = Unshuffled, 1 = Shuffled
 volume      = 60   # range 0 - 100
 use_USB     = 1    # set to 0 if you only use /home/pi/Music/... on SD card
 sleep_timer = 0    # sleep_timer timer in minutes, use 15,30,45,60 etc...set to 0 to disable
@@ -33,7 +33,7 @@ bl_timeout  = 30   # backlight timeout in seconds, set to 0 to disable
 show_clock  = 1    # set to 1 to show clock, only use if on web or using RTC
 gapless     = 1    # set to 1 for gapless play
 gaptime     = 2    # set pre-start time for gapless, in seconds
-album_mode  = 1    # set to 1 for Album Mode, will play an album then stop
+album_mode  = 0    # set to 1 for Album Mode, will play an album then stop
 lcd_lines   = 2    # set to 2 for 16x2, 4 for 20x4 lcd
 
 Radio_Stns = ["R Paradise Rock","http://stream.radioparadise.com/rock-192",
@@ -98,8 +98,8 @@ def reload():
     lcd.text("Tracks: " + str(len(tracks)), 1)
     time.sleep(0.05)
     lcd.text("Reloading... ", 2)
-    sd_tracks  = glob.glob("/media/pi/*/*/*/*.mp3")
-    usb_tracks = glob.glob("/home/pi/Music/*/*/*.mp3")
+    sd_tracks  = glob.glob("/media/" + users[0] + "/*/*/*/*.mp3")
+    usb_tracks = glob.glob("/home/" + users[0] + "/*/*/*/*.mp3")
     titles = [0,0,0,0,0,0,0]
     if len(sd_tracks) > 0:
       for x in range(0,len(sd_tracks)):
@@ -172,19 +172,24 @@ with open("freedisk.txt", "r") as file:
     while line:
          freedisk.append(line.strip())
          line = file.readline()
-     
+
+# find user
+users  = []
+users.append(os.getlogin())
+
 # check if USB mounted and find USB storage
 start = time.monotonic()
 lcd.text("Loading...", 1)
-usb = glob.glob("/media/pi/*")
+usb = glob.glob("/media/" + users[0] + "/*")
 for c in range(0,len(usb)):
     if os.path.getsize(usb[c]) < 5000:
         usb[c] = "x"
 usb = [i for i in usb if i!="x"]
+print(usb)
 usb_found = len(usb)
 if use_USB == 1:
     while time.monotonic() - start < 30 and usb_found == 0:
-        usb = glob.glob("/media/pi/*")
+        usb = glob.glob("/media/" + users[0] + "/*")
         for c in range(0,len(usb)):
             if os.path.getsize(usb[c]) < 5000:
                 usb[c] = "x"
