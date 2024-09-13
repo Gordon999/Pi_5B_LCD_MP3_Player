@@ -40,6 +40,8 @@ sudo apt-get install mplayer
 
 sudo pip3 install mutagen
 
+enable i2c, menu >> Preferences >> Pi Configuration > Interfaces >> i2c
+
 to run python3 5B_LCD_MP3_player.py
 
 to start at boot add /usr/bin/python3 /home/USERNAME/5B_LCD_MP3_player.py to /etc/xdg/lxsession/LXDE-pi/autostart
