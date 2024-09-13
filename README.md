@@ -25,10 +25,10 @@ Backlight control (if required) via a opto-isolator, if not then leave the suppl
 ![schematic](photo001.jpg)
 
 
-At boot it will look for mp3 tracks in '/home/pi/Music/artist name/album_name/tracks', 
-and/or on a USB stick, under /media/pi/usb_stick_name/artist name/album_name/tracks
+At boot it will look for mp3 tracks in '/home/USERNAME/Music/artist name/album_name/tracks', 
+and/or on a USB stick, under /media/USERNAME/usb_stick_name/artist name/album_name/tracks
 
-To install copy 5B_LCD_MP3_player.py to /home/pi
+To install copy 5B_LCD_MP3_player.py to /home/USERNAME
 
 and then
 
@@ -42,5 +42,5 @@ sudo pip3 install mutagen
 
 to run python3 5B_LCD_MP3_player.py
 
-to start at boot add /usr/bin/python3 /home/pi/5B_LCD_MP3_player.py to /etc/xdg/lxsession/LXDE-pi/autostart
+to start at boot add /usr/bin/python3 /home/USERNAME/5B_LCD_MP3_player.py to /etc/xdg/lxsession/LXDE-pi/autostart
 and ensure your Pi boots to the GUI
