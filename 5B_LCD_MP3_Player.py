@@ -60,7 +60,7 @@ NEXT  = 22 # NEXT TRACK (whilst playing) / NEXT ALBUM (whilst stopped) / NEXT AR
 VOLU  = 24 # Press for backlight ON, HOLD and then use PREV/NEXT to adjust volume whilst playing
 SLEEP = 32 # Set sleep_timer time (15 minute steps upto 2 hours), HOLD for 10 seconds to SHUTDOWN
 # GPIO OUTPUTS
-BLIG = 40 # lcd backlight
+BLIG = 38 # lcd backlight
 
 # setup GPIO
 GPIO.setmode(GPIO.BOARD)
