@@ -5,7 +5,8 @@ Not for BOOKWORM.
 A simple MP3 Player and Internet Radio Player using a Raspberry Pi, 5 buttons, and 1 I2C LCD, either 16x2 or 20x4.
 
 All buttons are connected between gpios and gnd (1k resistors in series are usually recommended), LCD connected as shown. 
-Backlight control (if required) via a opto-isolator, if not then leave the supplied link in place on the LCD.
+Backlight control (optional) via a opto-isolator, if not then leave the supplied link in place on the LCD.
+If you try Pi_5B_LCD_MP3_Player2.py and that works OK you don't need to wire to the lcd hust leave the link in.
 
 ## schematic
 
