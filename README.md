@@ -6,7 +6,7 @@ A simple MP3 Player and Internet Radio Player using a Raspberry Pi, 5 buttons, a
 
 All buttons are connected between gpios and gnd (1k resistors in series are usually recommended), LCD connected as shown. 
 Backlight control (optional) via a opto-isolator, if not then leave the supplied link in place on the LCD.
-If you try Pi_5B_LCD_MP3_Player2.py and that works OK you don't need to wire to the lcd hust leave the link in.
+If you try Pi_5B_LCD_MP3_Player2.py and that works OK you don't need to wire to the lcd just leave the link in.
 
 ## schematic
 
