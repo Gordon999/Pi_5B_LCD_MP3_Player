@@ -1,6 +1,6 @@
 # Pi_5B_LCD_MP3_Player
 
-Not for BOOKWORM.
+Not for BOOKWORM 32bit, works with 64bit
 
 A simple MP3 Player and Internet Radio Player using a Raspberry Pi, 5 buttons, and 1 I2C LCD, either 16x2 or 20x4.
 
