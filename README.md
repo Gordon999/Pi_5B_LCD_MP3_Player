@@ -8,6 +8,8 @@ All buttons are connected between gpios and gnd (1k resistors in series are usua
 Backlight control (optional) via a opto-isolator, if not then leave the supplied link in place on the LCD.
 If you try Pi_5B_LCD_MP3_Player2.py and that works OK you don't need to wire to the lcd just leave the link in.
 
+This has now been tested with Innomaker DAC and 25W amp hats.
+
 ## schematic
 
 ![schematic](schematic.jpg)
