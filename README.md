@@ -37,11 +37,11 @@ and then
 
 sudo apt-get install python3-alsaaudio
 
-sudo pip3 install rpi_lcd
+sudo pip3 install rpi_lcd (--break-system-packages)
 
 sudo apt-get install mplayer
 
-sudo pip3 install mutagen
+sudo pip3 install mutagen (--break-system-packages)
 
 enable i2c, Menu >> Preferences >> Raspberry Pi Configuration >> Interfaces >> i2c enable
 
