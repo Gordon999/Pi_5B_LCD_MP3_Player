@@ -14,6 +14,8 @@ This has now been tested with Innomaker DAC and 25W amp hats.
 
 ![schematic](schematic.jpg)
 
+Note schematic shows GPIO physical pin numbers !!
+
 5 button switches, PREVIOUS,PLAY,NEXT,VOLUME,SLEEP but they have multi purposes as shown.
 ## Button usage
 
