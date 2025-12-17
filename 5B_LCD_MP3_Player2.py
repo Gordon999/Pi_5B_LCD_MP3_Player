@@ -18,7 +18,7 @@ def safe_exit(signum, frame):
 signal(SIGTERM, safe_exit)
 signal(SIGHUP, safe_exit)
 
-# version 1.3
+# version 1.4
 
 # set starting variables
 MP3_Play    = 0    # set to 1 to start playing MP3s at boot, else 0
@@ -85,6 +85,7 @@ cplayed     = 0
 atimer      = time.monotonic()
 aalbum_mode = album_mode
 played_pc   = 0
+m           = ""
 
 def reload():
     global tracks
@@ -92,8 +93,8 @@ def reload():
     lcd.text("Tracks: " + str(len(tracks)), 1)
     time.sleep(0.05)
     lcd.text("Reloading... ", 2)
-    sd_tracks  = glob.glob("/media/" + users[0] + "/*/*/*/*.mp3")
-    usb_tracks = glob.glob("/home/" + users[0] + "/Music/*/*/*.mp3")
+    usb_tracks  = glob.glob("/media/" + users[0] + "/*/*/*/*.mp3")
+    sd_tracks = glob.glob("/home/" + users[0] + "/Music/*/*/*.mp3")
     titles = [0,0,0,0,0,0,0]
     if len(sd_tracks) > 0:
       for x in range(0,len(sd_tracks)):
@@ -129,11 +130,13 @@ def Set_Volume():
         for w in range(0,int(volume/6)):
             q +=">"
         lcd.text(q, 2)    
-        m.setvolume(volume)
-        lcd.text("Set Volume.. " + str(volume), 1)
-        os.system("amixer -D pulse sset Master " + str(volume) + "%")
-        if mixername == "DSP Program":
-            os.system("amixer set 'Digital' " + str(volume + 107))
+        if len(alsaaudio.mixers()) > 0:
+            m.setvolume(volume)
+            os.system("amixer -D pulse sset Master " + str(volume) + "%")
+            if mixername == "DSP Program":
+               os.system("amixer set 'Digital' " + str(volume + 107))
+        else:
+           os.system("wpctl set-volume @DEFAULT_AUDIO_SINK@ " + str(volume/100))
 
 def status():
     global txt,shuffled,gapless,aalbum_mode,sleep_timer
@@ -222,6 +225,9 @@ if len(alsaaudio.mixers()) > 0:
     os.system("amixer -D pulse sset Master " + str(volume) + "%")
     if mixername == "DSP Program":
         os.system("amixer set 'Digital' " + str(volume + 107))
+        
+else:
+    os.system("wpctl set-volume @DEFAULT_AUDIO_SINK@ " + str(volume/100))
         
 # load MP3 tracks
 tracks  = []
