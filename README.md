@@ -10,6 +10,8 @@ If you try Pi_5B_LCD_MP3_Player2.py and that works OK you don't need to wire to 
 
 This has now been tested with Innomaker DAC and 25W amp hats.
 
+You may also be interested in https://github.com/Gordon999/PI_LCD_MP3_player which does similar but uses a rotary encoder and 1 button.
+
 ## schematic
 
 ![schematic](schematic.jpg)
