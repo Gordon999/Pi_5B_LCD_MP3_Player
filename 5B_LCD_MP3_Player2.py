@@ -18,7 +18,7 @@ def safe_exit(signum, frame):
 signal(SIGTERM, safe_exit)
 signal(SIGHUP, safe_exit)
 
-# version 1.4
+# version 1.5
 
 # set starting variables
 MP3_Play    = 0    # set to 1 to start playing MP3s at boot, else 0
@@ -214,8 +214,17 @@ if use_USB == 1:
                 for item in freedisk:
                     f.write("%s\n" % item)
 
+#check linux version.
+lv = os.popen("cat /etc/os-release").read()
+lva = lv.split("\n")
+for w in range(0,len(lva)):
+    if lva[w][0:16] == "VERSION_CODENAME":
+        lvers = lva[w].split("=")
+        lver = lvers[1][0:6]
+print(lver)
+
 # check for audio mixers
-if len(alsaaudio.mixers()) > 0:
+if len(alsaaudio.mixers()) > 0 and lver == "bookwo":
     for mixername in alsaaudio.mixers():
         if str(mixername) == "PCM" or str(mixername) == "DSP Program" or str(mixername) == "Master" or str(mixername) == "Capture" or str(mixername) == "Headphone" or str(mixername) == "HDMI":
             m = alsaaudio.Mixer(mixername)
@@ -225,7 +234,6 @@ if len(alsaaudio.mixers()) > 0:
     os.system("amixer -D pulse sset Master " + str(volume) + "%")
     if mixername == "DSP Program":
         os.system("amixer set 'Digital' " + str(volume + 107))
-        
 else:
     os.system("wpctl set-volume @DEFAULT_AUDIO_SINK@ " + str(volume/100))
         
